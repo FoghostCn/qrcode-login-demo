@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/public/favicon.png" rel="shortcut icon">
+  <link rel="stylesheet" href="/public/stylesheet/normalize.css">
+  <link rel="stylesheet" href="/public/stylesheet/login.css">
+  <title>登录</title>
+</head>
+<body class="vertical-align-parent">
+<div class="scan-container vertical-align-self">
+  <div id="qrcode" class="scan-code"></div>
+  <p class="scan-message">扫描此二维码登录</p></div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/js/qrcode.min.js"></script>
+<script>
+  var socket = io();
+  socket.on('connect', function () {
+    var container = document.getElementById("qrcode");
+    container.innerHTML = '';
+    var content = socket.nsp + '#' + socket.id;
+    console.log(JSON.stringify({sid: content}));
+    new QRCode(container, {
+      text: content,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    container.title = '';
+  });
+  socket.on('authorized', function () {
+    console.log('authorized');
+    location.reload(true);
+  })
+</script>
+</html>

@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+}
+
+.vertical-align-parent {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+}
+
+.scan-container {
+    width      : 16em;
+    margin     : 0 auto;
+    text-align : center;
+}
+
+.scan-code {
+    width  : 15em;
+    height : 15em;
+    margin : 0 auto;
+}
+
+.scan-message {
+    font-size   : 1.125em;
+    line-height : 1.66em;
+}
+
+.scan-code img{
+    width  : 15em;
+    height : 15em;
+    margin : 0 auto;
+}
+.scan-code canvas{
+    width  : 15em;
+    height : 15em;
+    margin : 0 auto;
+}
