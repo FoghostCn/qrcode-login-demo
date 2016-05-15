@@ -18,9 +18,9 @@ you will see an qrcode ,then open the web browser console, copy the log just loo
 }
 ```
 
-use postman or browser http request plugin send a post request to http://localhost:3000/authorize with the body yo have just copied ,you will see a redirect in the browser with a random userId in you session;
+use postman or browser http request plugin send a post request to http://localhost:3000/authorize with the body yo have just copied ,you will see a redirect in the browser with a random userId in you session, of cause you should generate session by yourself in you project;
 
-if you want to run in cluster mode,just change file     `service/auth.js` line 13 to :
+if you want to run in cluster mode,just change file `service/auth.js` line 13、14 to :
 
 ```
 13  //const adapter = new EventEmitter();
