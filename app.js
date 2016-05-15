@@ -12,7 +12,7 @@ const session = require('koa-generic-session');
 const mount = require('koa-mount');
 const staticServer = require('koa-static');
 const socketIo = require('socket.io');
-const socketIoRedis = require('socket.io-redis');
+//const socketIoRedis = require('socket.io-redis');
 app.keys = config.session.secret;
 
 // Logger
@@ -46,7 +46,7 @@ const server = app.listen(config.port, () => {
     'production' : 'debug'} mode`);
 });
 
-const io = socketIo(server, {adapter: socketIoRedis(config.redis)});
+const io = socketIo(server/*, {adapter: socketIoRedis(config.redis)}*/);
 auth.subAuthorize(io);
 io.on('connect', auth.ifAutoLogin);
 server.on('error', e => {throw e});
